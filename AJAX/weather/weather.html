@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Open Weather</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('form').submit(function(){
+				var weather = $('<http:api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=7e00a2bebc8a02b082970689607c9704>');
+				$('div.results').append(weather);
+				$('div.results').html()
+					success : function(parsed_json){
+					var location = parsed_json['location']['city'];
+					var temp_f = parsed_json['current_observation']['temp_f'];
+					form("current temperature in "+location+ " is: "+ temp_f);
+			}
+
+				$.get(weather.function(res){
+
+					$('div.results').html()
+					success : function(parsed_json){
+					var location = parsed_json['location']['city'];
+					var temp_f = parsed_json['current_observation']['temp_f'];
+					form("current temperature in "+location+ " is: "+ temp_f);
+				}
+
+				});
+				return false;
+			});
+		});
+	</script>
+</head>
+<body>
+<div class="site-wapper">
+	<form class='form'>
+		<input type="text" value="location">
+		<input type="submit" value="search weather">
+	</form>
+	<div class="results">
+
+	</div> <!-- end of results -->
+</div> <!-- end of site-wrapper -->
+</body>
+</html>
